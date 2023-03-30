@@ -90,6 +90,8 @@ EOF
 curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/$OS/Release.key | apt-key --keyring /etc/apt/trusted.gpg.d/libcontainers.gpg add -
 curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:$VERSION/$OS/Release.key | apt-key --keyring /etc/apt/trusted.gpg.d/libcontainers-cri-o.gpg add -
 
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4D64390375060AA4
+
 apt update && apt install -qq -y cri-o cri-o-runc cri-tools
 
 cat >>/etc/crio/crio.conf.d/02-cgroup-manager.conf<<EOF
